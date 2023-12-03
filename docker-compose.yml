@@ -2,6 +2,13 @@ version: '3'
 
 services:
   tomcat:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - DB_CONNECT=${DB_CONNECT}
+        - DB_URL_MYSQL=${DB_URL_MYSQL}
+        - DB_USERNAME_MYSQL=${DB_USERNAME_MYSQL}
+        - DB_PASSWORD_MYSQL=${DB_PASSWORD_MYSQL}
     ports:
       - "8080:8080"
